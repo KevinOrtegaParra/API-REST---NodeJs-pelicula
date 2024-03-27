@@ -5,8 +5,7 @@ const obtenerGeneros = async (req = request, res = response) => {
     try {
         const { Estado } = req.query;
         const generos = await Genero.find({ Estado });
-        //.then(data => res.json(data)).catch(error => 
-        return res.json(generos);//);
+        return res.json(generos);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -18,8 +17,7 @@ const crearGeneros = async (req = request, res = response) => {
         const body = req.body;
         const genero = new Genero(body);
         await genero.save();
-        //.then(data => res.json(data)).catch(error => 
-        return res.status(201).json(genero);//);
+        return res.status(201).json(genero);
 
     } catch (error) {
         return res.status(500).json({ message: error });

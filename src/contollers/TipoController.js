@@ -3,10 +3,8 @@ const { request, response } = require('express');
 
 const obtenerTipo = async (req = request, res = response) => {
     try {
-        //const { Estado } = req.query;
-        const tipo = await Tipo.find();//{ Estado });
-        //.then(data => res.json(data)).catch(error => 
-        return res.json(tipo);//);
+        const tipo = await Tipo.find();
+        return res.json(tipo);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -18,8 +16,7 @@ const crearTipo = async (req = request, res = response) => {
         const body = req.body;
         const tipo = new Tipo(body);
         await tipo.save();
-        //.then(data => res.json(data)).catch(error => 
-        return res.status(201).json(tipo);//);
+        return res.status(201).json(tipo);
 
     } catch (error) {
         return res.status(500).json({ message: error });

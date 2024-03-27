@@ -3,10 +3,8 @@ const { request, response } = require('express');
 
 const obtenerMedia = async (req = request, res = response) => {
     try {
-        //const { Estado } = req.query;
-        const media = await Media.find();//{ Estado });
-        //.then(data => res.json(data)).catch(error => 
-        return res.json(media);//);
+        const media = await Media.find();
+        return res.json(media);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -18,8 +16,7 @@ const crearMedia = async (req = request, res = response) => {
         const body = req.body;
         const media = new Media(body);
         await media.save();
-        //.then(data => res.json(data)).catch(error => 
-        return res.status(201).json(media);//);
+        return res.status(201).json(media);
 
     } catch (error) {
         return res.status(500).json({ message: error });

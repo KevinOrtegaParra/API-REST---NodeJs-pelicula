@@ -5,8 +5,7 @@ const obtenerProductora = async (req = request, res = response) => {
     try {
         const { Estado } = req.query;
         const productora = await Productora.find({ Estado });
-        //.then(data => res.json(data)).catch(error => 
-        return res.json(productora);//);
+        return res.json(productora);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -18,8 +17,7 @@ const crearProductora = async (req = request, res = response) => {
         const body = req.body;
         const productora = new Productora(body);
         await productora.save();
-        //.then(data => res.json(data)).catch(error => 
-        return res.status(201).json(productora);//);
+        return res.status(201).json(productora);
 
     } catch (error) {
         return res.status(500).json({ message: error });

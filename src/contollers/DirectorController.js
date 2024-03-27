@@ -5,8 +5,7 @@ const obtenerDirector = async (req = request, res = response) => {
     try {
         const { Estado } = req.query;
         const director = await Director.find({ Estado });
-        //.then(data => res.json(data)).catch(error => 
-        return res.json(director);//);
+        return res.json(director);
 
     } catch (error) {
         return res.status(500).json({ message: error });
@@ -18,8 +17,7 @@ const crearDirector = async (req = request, res = response) => {
         const body = req.body;
         const director = new Director(body);
         await genero.save();
-        //.then(data => res.json(data)).catch(error => 
-        return res.status(201).json(director);//);
+        return res.status(201).json(director);
 
     } catch (error) {
         return res.status(500).json({ message: error });

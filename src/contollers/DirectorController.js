@@ -16,7 +16,7 @@ const crearDirector = async (req = request, res = response) => {
     try {
         const body = req.body;
         const director = new Director(body);
-        await genero.save();
+        await director.save();
         return res.status(201).json(director);
 
     } catch (error) {
